@@ -1,0 +1,117 @@
+{
+  'name': 'Francisco J. Carriedo',
+  'title': 'Sr. Software Engineer',
+  'address': '450 N. Mathilda Av., Apt. O307, Sunnyvale, CA',
+  'phone': '+1 (650) 450-4304',
+  'email': 'fcarriedo@gmail.com',
+  'key_qualifications': [
+    'Java',
+    'Spring',
+    'HTML',
+    'JavaScript',
+    'jQuery',
+    'Backbone.js',
+    'REST',
+    'Test Driven Development',
+    'Agile Methodologies',
+    'Design Patterns',
+    'Python',
+    'XML, XSLT',
+    'C#',
+    'git',
+    'svn',
+    'MySQL',
+    'Oracle',
+    'SQL Server',
+    'JPA-Hibernate',
+    'Eclipse',
+    'vim',
+    'ant',
+    'Tomcat',
+    'Linux/Unix',
+    'Mac OS X',
+    'Windows 2K/XP/2k3'
+  ],
+  'lately_playing_with': [
+    'HTML5',
+    'Android',
+    'Node.js (express & socket.io)',
+    'Scala',
+    'Ruby',
+    'Redis',
+    'MongoDB',
+    'CoffeeScript',
+    'Arduino',
+    'Google App Engine'
+  ],
+  'personal_public_projects': 'https://github.com/fcarriedo',
+  'experience': [
+    {
+      'company': 'ZoomSystems, San Francisco, CA, US',
+      'title': 'Sr. Software Engineer',
+      'time_period': 'Oct 09 - up to date',
+      'key_accomplishments': 'Design and impl of their REST Strategy, Spring Framework impl, i18n impl, Email receipts, cross-sell/upsell mechanism, Suica Payment Integration, Help System, co-authored platform',
+      'technologies': 'Java, Spring, Tiles, SQL Server, JavaScript, jQuery, JPA-Hibernate, XML, XSLT, ivy, JUnit, EasyMock, SVN, git'
+    },
+    {
+      'company': 'Gap Inc. (via Globant), San Francisco, CA, US',
+      'title': 'Software Engineer',
+      'time_period': 'Dec 08 - Jul 09',
+      'key_accomplishments': 'Implementation of several SOAP WebServices for their core order management ecosystem',
+      'technologies': 'Java, Axis/Axis2, XML-XSD, WSDL, WebSphere, JBoss, Tomcat, Oracle, SVN'
+    },
+    {
+      'company': 'Google Inc. (via Globant), Mountain View, CA, US',
+      'title': 'Software Engineer',
+      'time_period': 'Nov 07 - Dec 08',
+      'key_accomplishments': 'Tool development and automated test suite expansion for the TvAds project, automated environment installation & setup',
+      'technologies': 'Python, Java, PyUnit, Eclipse, Linux, Perforce, MySQL4/5, BigTable, (internal Google technologies)'
+    },
+    {
+      'company': 'Vignette, Mexico City, MX',
+      'title': 'Sr. Software Engineer / Project Manager',
+      'time_period': 'Feb 05 - Oct 07',
+      'key_accomplishments': 'Several successful integrations and installations with big important clients, successful lead and coordination of small-to-medium size teams to complete time constrained projects',
+      'technologies': 'JSE, JEE, Portlets (JSR168), Vignette (Portal, ContentManager, Collab), Spring, Axis, LDAP, Oracle, SQL Server, MySQL, Unix, Linux, Windows'
+    }
+  ],
+  'education': [
+    {
+      'school': 'Instituto Politecnico Nacional, Mexico City, MX',
+      'degree': 'BS, Communications and Electronics Engineering, with emphasis on Computer Science',
+      'time_period': 'Sep 97 - Dec 01',
+      'gpa': '8.69 (1 to 10 scale)',
+      'thesis': 'Printed Circuit Board Drilling Robot'
+    },
+    {
+      'school': 'Standford University (Continuous Studies Program), Stanford, CA, US',
+      'courses': [
+        'Financial Modeling & Strategic Business Decisions',
+        'Wealth Management',
+        'Creating Breakthroughs'
+      ]
+    }
+  ],
+  'certifications': [
+    'Java Programmer',
+    'Java Web Component Developer',
+    'Enterprise Java Architect (1st exam)'
+  ],
+  'languages': [
+    'English',
+    'Spanish',
+    'Japanese',
+    'French'
+  ],
+  'awards_and_honors': [
+    'Academic Excellence Program Student',
+    'Scholarship Recipient',
+    'Honor Roll Student'
+  ],
+  'interests': [
+    'Modern Physics',
+    'Traveling',
+    'Extreme Sports',
+    'Robotics'
+  ]
+}

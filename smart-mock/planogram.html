@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="css/smart.css" type="text/css" charset="utf-8">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Boostrap Demo</title>
+    <script type="text/javascript" src='js/jquery.min.js'></script>
+    <script type="text/javascript" src='js/bootstrap.min.js'></script>
+    <!-- IE specific quirks =( -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src='js/ie-quirks.js'></script>
+    <![endif]-->
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+          $('.mpopover').popover();
+          $('.mtooltip').tooltip();
+      });
+    </script>
+  </head>
+  <body>
+
+    <div class='container'>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">SMART</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li class='active'><a href="planogram.html">Planogram</a></li>
+                <li><a href="#">Analysis</a></li>
+              </ul>
+              <ul class="nav pull-right usr-logout">
+                <li><a>francisco.carriedo</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="#">logout</a></li>
+              </ul>
+            </div><!-- /.nav-collapse -->
+          </div>
+        </div><!-- /navbar-inner -->
+      </div>
+      <div class="subnav subnav-fixed">
+        <ul class="nav nav-pills">
+          <li class='active'><a href="#main">main</a></li>
+          <li><a href="#assortment">Assortment</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#layout">Layout</a></li>
+          <li><a href="taxonomy.html">Taxonomy</a></li>
+          <li><a href="#navigation">Navigation</a></li>
+        </ul>
+      </div>
+      <br/>
+
+      <div class='row'>
+        <div class='span12'>
+          <div class='pull-left'>
+            <button class='btn' onClick='$("#planogram-create-modal").modal()'>New Planogram</button>
+          </div>
+          <div class='pull-right'>
+            Merchant
+            <select name='merchant'>
+              <option value='safeway'>SAFEWAY</option>
+              <option value='bestbuy'>BEST BUY</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class='row'>
+        <div class='span12'>
+          <table class='table table-bordered table-striped'>
+            <thead>
+              <tr>
+                <th>Planogram</th>
+                <th>Channel</th>
+                <th>Hardware</th>
+                <th>In Field Date</th>
+                <th>Version</th>
+                <th>Last Submited</th>
+                <th>Closed Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Elem one</td>
+                <td>Elem two</td>
+                <td>Elem three</td>
+                <td>Elem four</td>
+                <td>Elem five</td>
+                <td>Elem six</td>
+                <td>Elem seven</td>
+                <td>
+                  <div class='btn-group actions' style='text-align: center'>
+                    <a href='#' title='delete'><i class='icon-remove'></i></a>
+                    <a href='#' title='reload'><i class='icon-refresh'></i></a>
+                    <a href='#' title='edit'><i class='icon-edit'></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Elem one</td>
+                <td>Elem two</td>
+                <td>Elem three</td>
+                <td>Elem four</td>
+                <td>Elem five</td>
+                <td>Elem six</td>
+                <td>Elem seven</td>
+                <td>
+                  <div class='btn-group actions' style='text-align: center'>
+                    <a href='#' title='delete'><i class='icon-remove'></i></a>
+                    <a href='#' title='reload'><i class='icon-refresh'></i></a>
+                    <a href='#' title='edit'><i class='icon-edit'></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Elem one</td>
+                <td>Elem two</td>
+                <td>Elem three</td>
+                <td>Elem four</td>
+                <td>Elem five</td>
+                <td>Elem six</td>
+                <td>Elem seven</td>
+                <td>
+                  <div class='btn-group actions' style='text-align: center'>
+                    <a href='#' title='delete'><i class='icon-remove'></i></a>
+                    <a href='#' title='reload'><i class='icon-refresh'></i></a>
+                    <a href='#' title='edit'><i class='icon-edit'></i></a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='span6'>
+          <h3>Status <small>TBD</small></h3>
+        </div>
+        <div class='span6'>
+          <form class="form-horizontal">
+            <fieldset>
+              <legend>Create new...</legend>
+              <div class="control-group">
+                <label class="control-label" for="textarea">Planogram Description</label>
+                <div class="controls">
+                  <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="optionsCheckbox">Required Languages</label>
+                <div class="controls">
+                  <label class="checkbox">
+                    <input type="checkbox" id="optionsCheckbox" value="option1"> English
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" id="optionsCheckbox" value="option1"> Japanese
+                  </label>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="input01">Quickbase Ticket #</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input01">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="input02">Client Approval</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input02">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="input03">Passed Vend Testing</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input03">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="input04">Submited for Review</label>
+                <div class="controls">
+                  <input type="text" class="input-xlarge" id="input04">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn">New...</button>
+                <button class="btn">Cancel</button>
+                <button class="btn btn-warning"><i class='icon-check icon-white'></i> Close</button>
+                <button class="btn btn-primary">Save</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 'Create Planogram' modal -->
+    <div id='planogram-create-modal' class='modal hide fade'>
+      <div class='modal-header'>
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3>New Planogram</h3>
+      </div>
+      <div class='modal-body'>
+
+        <div id='error-alert' class="alert alert-block alert-error fade in hide">
+          <a class="close" data-dismiss="alert" href="#">×</a>
+          <h4 class="alert-heading">Oh snap! You got an error!</h4>
+          <p>Please correct the fields in red before continuing.</p>
+        </div>
+
+        <script>
+          function validateForm() {
+            $('#error-alert').fadeIn('fast', function() {
+              $('#name-field').addClass('error');
+            });
+          }
+        </script>
+
+        <form class="form-horizontal">
+          <fieldset>
+            <div id='name-field' class="control-group">
+              <label class="control-label" for="input01">Name</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" id="input01">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="input02">In-Field date</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" id="input02">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="select01">Channel</label>
+              <div class="controls">
+                <select id='select01' class='input-xlarge' name='channel'>
+                  <option value='airport'>Airport</option>
+                  <option value='casino'>Casino</option>
+                  <option value='mall'>Mall</option>
+                  <option value='military'>Military</option>
+                </select>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="select02">Hardware</label>
+              <div class="controls">
+                <select id='select02' class='input-xlarge' name='hardware'>
+                  <option value='rrs'>RRS</option>
+                  <option value='p1'>P1</option>
+                  <option value='e1'>E1</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class='modal-footer'>
+        <a class='btn' data-dismiss='modal'>Cancel</a>
+        <a class='btn btn-primary' onClick='validateForm()'>OK</a>
+      </div>
+    </div>
+
+
+  </body>
+</html>

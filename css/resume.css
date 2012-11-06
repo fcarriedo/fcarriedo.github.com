@@ -1,0 +1,12 @@
+html, body {
+  width: 2500px;
+  height: 2000px;
+  padding: 200px;
+  overflow: hidden;
+}
+
+div#content {
+  border: thin solid orange;
+  width: 1700px;
+  height: 450px;
+}

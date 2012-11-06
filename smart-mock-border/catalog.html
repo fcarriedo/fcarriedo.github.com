@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/smart.css" type="text/css">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Boostrap Demo</title>
+    <script type="text/javascript" src='js/jquery.min.js'></script>
+    <script type="text/javascript" src='js/bootstrap.min.js'></script>
+    <!-- IE specific quirks =( -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src='js/ie-quirks.js'></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class='main-container'>
+      <div class='container'>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="#">SMART</a>
+              <div class="nav-collapse">
+                <ul class="nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li class='active'><a href="#">Catalog</a></li>
+                  <li><a href="planogram.html">Planogram</a></li>
+                  <li><a href="#">Analysis</a></li>
+                </ul>
+                <ul class="nav pull-right usr-logout">
+                  <li><a>francisco.carriedo</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="#">logout</a></li>
+                </ul>
+              </div><!-- /.nav-collapse -->
+            </div>
+          </div><!-- /navbar-inner -->
+        </div>
+
+        <div class='container'>
+          <div class='row'>
+            <div class='span12'>
+              <div class='pull-left'>
+                <a class='btn' onClick='$("#product-create-modal").modal()'>New Product</a>
+                <a class='btn' onClick='$("#import-modal").modal()'>Import</a>
+              </div>
+              <div class='pull-right'>
+                Merchant
+                <select name='merchant'>
+                  <option value='safeway'>SAFEWAY</option>
+                  <option value='bestbuy'>BEST BUY</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br/>
+          <div class='row'>
+            <div class='span12'>
+              <table class='table table-bordered table-striped'>
+                <thead>
+                  <tr>
+                    <th>SKU</th>
+                    <th>UPC/EAN</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Missing Attr.</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type='text' class='span2'/></td>
+                    <td><input type='text' class='span2'/></td>
+                    <td><input type='text' class='span2'/></td>
+                    <td><input type='text' class='span2'/></td>
+                    <td><select name='miss-attr' class='span2'><option value='all'>All</option><option value='yes'>Yes</option><option value='no'>No</option></select></td>
+                    <td>
+                      <div class='btn-group'>
+                        <a class='btn btn-mini' href='#'><i class='icon-remove'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-refresh'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-edit'></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Elem one</td>
+                    <td>Elem two</td>
+                    <td>Elem three</td>
+                    <td>Elem four</td>
+                    <td>Elem five</td>
+                    <td>
+                      <div class='btn-group'>
+                        <a class='btn btn-mini' href='#'><i class='icon-remove'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-refresh'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-edit'></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Elem one</td>
+                    <td>Elem two</td>
+                    <td>Elem three</td>
+                    <td>Elem four</td>
+                    <td>Elem five</td>
+                    <td>
+                      <div class='btn-group'>
+                        <a class='btn btn-mini' href='#'><i class='icon-remove'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-refresh'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-edit'></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Elem one</td>
+                    <td>Elem two</td>
+                    <td>Elem three</td>
+                    <td>Elem four</td>
+                    <td>Elem five</td>
+                    <td>
+                      <div class='btn-group'>
+                        <a class='btn btn-mini' href='#'><i class='icon-remove'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-refresh'></i></a>
+                        <a class='btn btn-mini' href='#'><i class='icon-edit'></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <hr/>
+        <div class='pull-right muted'>ZoomSystems v1.0</div>
+
+      </div> <!-- container -->
+    </div>  <!-- main-container -->
+
+    <!-- 'Product Create' modal -->
+    <div id='product-create-modal' class='modal hide fade' style='display: none;'>
+      <div class='modal-header'>
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3>New Product</h3>
+      </div>
+      <div class='modal-body'>
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="input01">Name</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" id="input01">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="input02">SKU</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" id="input02">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="input03">UPC</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" id="input03">
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class='modal-footer'>
+        <a href='#' class='btn' data-dismiss='modal'>Cancel</a>
+        <a href='#' class='btn btn-primary'>OK</a>
+      </div>
+    </div>
+
+    <!-- 'Import' modal -->
+    <div id='import-modal' class='modal hide fade' style='display: none;'>
+      <div class='modal-header'>
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Import Product Set</h3>
+      </div>
+      <div class='modal-body'>
+        <p>Please select the product sheet to import</p><br/>
+        <form class="form-horizontal">
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="file">Select file</label>
+              <div class="controls">
+                <input type="file" class="input-xlarge" id="file">
+                <p class='help-block'><span class='label label-info'>Heads up!</span> You'll need a correctly formatted product spreadsheet.</p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class='modal-footer'>
+        <a href='#' class='btn' data-dismiss='modal'>Cancel</a>
+        <a href='#' class='btn btn-primary'>Import</a>
+      </div>
+    </div>
+
+  </body>
+</html>

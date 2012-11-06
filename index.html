@@ -1,23 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
-    <head>
-        <title>fcarriedo - Personal GitHub</title>
-        <style type='text/css'>
-            body {
-                background-color: #1b1b1b;
-                color: #eee;
-                font-family: sans-serif; 
-            }
-        </style>
-    </head>
-    <body>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Wire+One&v2' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light&v2' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nixie+One&v2' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Megrim&v2' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=VT323&v2' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Bangers&v2' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        padding: 0px 15px;
+        color: #333;
+        background-color: white;
+        font-family: sans-serif;
+      }
+      h1 {
+        font-family: 'Wire One', sans-serif;
+        font-size: 50px;
+        border-bottom: thin solid #bbb;
+        margin-bottom: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #999;
+      }
+      a:hover {
+        color: #666;
+      }
+      div {
+        padding: 5px;
+      }
+      div#name {
+        color: #666;
+      }
+      div#links a {
+        padding: 2px;
+        font-size: 9pt;
+      }
+      span#alt-name {
+        color: #738F99;
+      }
+    </style>
+    <script type='text/javascript'>
+      var fonts = [
+        "'Wire One', sans-serif",
+        "'Nixie One', cursive",
+        "'Shadows Into Light', cursive",
+        "'Megrim', cursive",
+        "'VT323', cursive",
+        "'Bangers', cursive"
+      ];
 
-        <h2 style='font-style: italic;'>fcarriedo Personal GitHub</h2>
-
-
-
-    </body>
+      function randomizeFont() {
+        var ix = Math.floor( Math.random()*fonts.length );
+        document.getElementById('name').style.fontFamily = fonts[ix];
+      }
+    </script>
+    <title>PacoStand</title>
+  </head>
+  <body onLoad='randomizeFont()'>
+    <h1><span id='alt-name'>paco</span>stand</h1>
+    <div id='name'>Francisco J. Carriedo</div>
+    <div id='links'>
+      <a href='https://github.com/fcarriedo'><img src='images/github-icon.png' title='@fcarriedo on github'/></a>
+      <a href='http://twitter.com/#!/fcarriedo'><img src='images/twitter-icon.png' title='@fcarriedo on twitter'/></a>
+      <a href='personal/resume.json'>resume (json)</a>
+    </div>
+  </body>
 </html>
-

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="css/smart.css" type="text/css" charset="utf-8">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Boostrap Demo</title>
+    <script type="text/javascript" src='js/jquery.min.js'></script>
+    <script type="text/javascript" src='js/bootstrap.min.js'></script>
+    <!-- IE specific quirks =( -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src='js/ie-quirks.js'></script>
+    <![endif]-->
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        $('.prod-group').popover();
+        $('.category-count').tooltip();
+        $(document).ready(function() {
+          // Add actions to the tree elements
+          $('.tree .folder').append('<span class="actions hide"><a href="#" class="close" title="delete"><i class="icon-remove"></i></a><a href="#" class="close" title="edit"><i class="icon-edit"></i></a></span>');
+          $('.tree .item').append('<span class="actions hide"><a href="#" class="close" title="delete"><i class="icon-remove"></i></a></span>');
+
+          // hover show/hide actions behavior
+          $('.tree .folder, .tree .item').hover(
+            function(evt) {
+            $(this).children('span.actions').show();
+            },
+            function(evt) {
+            $(this).children('span.actions').hide();
+            }
+            );
+
+          // expand and collapse folders
+          $('.tree .folder').live('click', function() {
+            // Remove the selected class from all elements
+            $('.tree .folder').removeClass('selected');
+
+            $(this).siblings('.items').toggle();
+            $(this).addClass('selected');
+
+            // Enabled the 'New Category' button.
+            $('#new-category-btn').removeClass('disabled');
+            });
+        });
+      });
+
+      function expandAll() {
+        $('.tree .items').show();
+      }
+      function collapseAll() {
+        $('.tree .items').hide();
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class='main-container'>
+      <div class='container'>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="#">SMART</a>
+              <div class="nav-collapse">
+                <ul class="nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="catalog.html">Catalog</a></li>
+                  <li class='active'><a href="planogram.html">Planogram</a></li>
+                  <li><a href="#">Analysis</a></li>
+                </ul>
+                <ul class="nav pull-right usr-logout">
+                  <li><a>francisco.carriedo</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="#">logout</a></li>
+                </ul>
+              </div><!-- /.nav-collapse -->
+            </div>
+          </div><!-- /navbar-inner -->
+        </div>
+        <div class="subnav subnav-fixed">
+          <ul class="nav nav-pills">
+            <li><a href="planogram.html">main</a></li>
+            <li><a href="#assortment">Assortment</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#layout">Layout</a></li>
+            <li class='active'><a href="#taxonomy">Taxonomy</a></li>
+            <li><a href="#navigation">Navigation</a></li>
+          </ul>
+        </div>
+        <br/>
+        <div class='row'>
+          <div class='span5'><h3>BBY Spring 2012 v2 <small>planogram</small></h3></div>
+        </div>
+        <div class='row'>
+          <div class='span2'>Hardware: <strong>RRS</strong></div>
+          <div class='span3'>Channel: <strong>Airport</strong></div>
+          <div class='span2 offset2'><h4>Category Tree</h4></div>
+          <div class='span3'>
+            <div class='pull-right'>
+              <a href='javascript:void(0)' onClick='expandAll()'>expand all</a> |
+              <a href='javascript:void(0)' onClick='collapseAll()'>collapse all</a>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class='row'>
+          <div class='span5'>
+            <div class='tax-container'>
+              <table class='table table-striped'>
+                <thead>
+                  <tr>
+                    <th>Products</th>
+                    <th># of Categories</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class='draggable'>
+                    <td>iPod touch 8 GB White</td>
+                    <td><a href='javascript:void(0)' class='category-count' rel='tooltip' title='Music Players'>1</a></td>
+                  </tr>
+                  <tr class='draggable'>
+                    <td>iPod touch 8 GB Red</td>
+                    <td><a href='javascript:void(0)' class='category-count' rel='tooltip' title='Cameras, Tech Gear, Trip'>3</a></td>
+                  </tr>
+                  <tr class='draggable'>
+                    <td>iPod touch 8 GB Black</td>
+                    <td><a href='javascript:void(0)' class='category-count' rel='tooltip' title='Music Players, Tech Gear'>2</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class='span2' style='text-align: center;'>Drag product to categories in order to asign.</div>
+          <div class='span5'>
+            <div class='tax-container'>
+              <div class='tree'>
+                <div class='tree-elem'>
+                  <div class='folder'><i class='icon-folder-open'></i> Home</div>
+                  <div class='items'>
+                    <div class='item'>Prod 1</div>
+                    <div class='item'>Prod 3</div>
+                    <div class='tree-elem'>
+                      <div class='folder'><i class='icon-folder-open'></i> Category 1</div>
+                      <div class='items'>
+                        <div class='item'>Prod 8</div>
+                        <div class='item'>Prod 4</div>
+                        <div class='tree-elem'>
+                          <div class='folder'><i class='icon-folder-open'></i> Sub Category 1</div>
+                          <div class='items'>
+                            <div class='item'>Prod 5</div>
+                            <div class='item'>Prod 7</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='tree-elem'>
+                      <div class='folder'><i class='icon-folder-open'></i> Category 2</div>
+                      <div class='items'>
+                        <div class='item'>Prod 8</div>
+                        <div class='item'><span class='prod-group' rel='popover' title='iPod Group' data-content='iPod 8 GB White, iPod 8 GB Black, iPod 8 GB Red'><i class='icon-th-large'></i> iPod Group</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='well'>
+              <button id='new-category-btn' class='btn disabled'>New Category</button>
+              <button id='group-by-btn' class='btn disabled'>Group by...</button>
+              <div class='pull-right'>
+                <button class='btn'>Cancel</button>
+                <button class='btn btn-primary'>Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <hr/>
+        <div class='pull-right muted'>ZoomSystems v1.0</div>
+
+      </div> <!-- container -->
+    </div> <!-- main-container -->
+
+  </body>
+</html>
