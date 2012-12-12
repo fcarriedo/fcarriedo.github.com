@@ -14,35 +14,59 @@ ProductListView = Backbone.View.extend({
   el: $('#page-viewport'),
   initialize: function() {
     this.$bulletContainer = $('#bullet-container').hide();
+    this.totalPages = Math.ceil(this.collection.length/this.collection.prodsPerPage);
+    if(this.totalPages > 1) this.$bulletContainer.show(); // Only show when there is more than one page
   },
   render: function() {
-    var numPages = Math.ceil(this.collection.length/this.collection.prodsPerPage);
-    if(numPages > 1) this.$bulletContainer.show(); // Only show when there is more than one page
-    for(pageIx in _.range(numPages)) {
+    // Create the pages
+    var pageViews = [];
+    for(pageIx in _.range(this.totalPages)) {
       var page = new Page({id: pageIx});
       var pageView = new PageView({model: page});
       var bulletView = new BulletView({model: page});
 
+      pageViews.push(pageView);
+
       this.$el.append(pageView.render().el);
       this.$bulletContainer.append(bulletView.render().el);
     }
-    var ix = 0;
-    this.collection.each(function(prod) {
+
+    // Fill them with products
+    var pgIx = -1;
+    this.collection.each(function(prod, ix) {
+      if((ix % this.collection.prodsPerPage) === 0) pgIx++;
+      var prodView = new ProductView({model: prod});
+      pageViews[pgIx].$el.append(prodView.render().el);
     }, this);
 
     return this;
-  }
+  },
 });
 PageView = Backbone.View.extend({
   className: 'page',
   render: function() {
+    this.$el.sortable({revert: true});
     this.$el.attr('id', 'page-' + this.model.id);
     return this;
   }
 });
 ProductView = Backbone.View.extend({
   className: 'product',
-  render: function() {return this}
+  render: function() {
+    this.$el.html('<span class="product-info">sku: ' + this.model.get('sku') + '</span>');
+    var self = this;
+    this.$el.draggable({
+      connectToSortable: '.page',
+      cursor: 'move',
+      addClasses: false,
+      revert: 'invalid',
+      helper: function(evt) {
+        return self.$el.data('model', $(this).data('model'));
+      }
+    });
+
+    return this;
+  }
 });
 BulletView = Backbone.View.extend({
   className: 'bullet',
@@ -58,6 +82,15 @@ BulletView = Backbone.View.extend({
   },
   render: function() {
     this.$el.attr('title', 'Page ' + this.page.get('id'));
+    this.$el.droppable({
+      accept: '.product',
+      activeClass: 'active',
+      greedy: true,
+      hoverClass: 'sliding',
+      drop: function(evt, ui) {
+        console.log('Just dropped it!');
+      }
+    });
     return this;
   },
   mouseIn: function() {

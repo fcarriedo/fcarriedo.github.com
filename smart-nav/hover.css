@@ -18,6 +18,18 @@ body { font-family: Verdana }
 .page:last-child {margin-bottom: 20px}
 .active {border-width: 2px; border-color: #bbb;}
 
+.product {
+  width: 100px;
+  height: 75px;
+  margin: 10px 0px 0px 15px;
+  float: left;
+  border: thin dashed #999;
+}
+.product-info {
+  font-size: 8pt;
+  color: #999;
+}
+
 
 #bullet-container {
   height: 225px;
@@ -36,5 +48,5 @@ body { font-family: Verdana }
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
-#bullet-container > .active {background-color: #aaa; border-color: #ccc; cursor: hand;}
+#bullet-container > .active {background-color: #aaa; border-color: #ccc; cursor: pointer;}
 #bullet-container > .sliding {border-width: 2px; background-color: orange;}
