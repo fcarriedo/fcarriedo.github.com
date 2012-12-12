@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='hover.css'>
+    <script type='text/javascript' src='jquery-1.7.1.min.js'></script>
+    <script type='text/javascript' src='jquery.scrollTo.js'></script>
+    <script>
+      $(document).ready(function() {
+        var prods = new ProductList([{sku: '1a'},{sku: '2b'},{sku: '3c'},{sku: '1a'},{sku: '2b'},{sku: '3c'}]);
+        new ProductListView({collection: prods}).render();
+      });
+    </script>
+  </head>
+  <body>
+    <h3>Drag-Hover-Slide-Drop demo</h3>
+    <div id='page-viewport'></div>
+    <div id='bullet-container'></div>
+
+    <script type='text/javascript' src='underscore.min.js'></script>
+    <script type='text/javascript' src='backbone-min.js'></script>
+    <script type='text/javascript' src='hover.js'></script>
+  </body>
+</html>

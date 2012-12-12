@@ -1,0 +1,40 @@
+body { font-family: Verdana }
+#page-viewport {
+  width: 300px;
+  height: 235px;
+  border: thin solid #999;
+  background-color: #efefef;
+  overflow: hidden;
+  float: left;
+}
+.page {
+  width: 250px;
+  height: 187px;
+  background-color: white;
+  border: thin solid #999;
+  margin: 10px auto;
+}
+.page:first-child {margin-top: 20px}
+.page:last-child {margin-bottom: 20px}
+.active {border-width: 2px; border-color: #bbb;}
+
+
+#bullet-container {
+  height: 225px;
+  float: left;
+  margin-left: 10px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.bullet {
+  border: solid thin #999;
+  background-color: #efefef;
+  margin: 7px auto;
+  width: 15px;
+  height: 15px;
+  margin-bottom: 5px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+#bullet-container > .active {background-color: #aaa; border-color: #ccc; cursor: hand;}
+#bullet-container > .sliding {border-width: 2px; background-color: orange;}

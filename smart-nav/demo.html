@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type='text/css' rel='stylesheet' href='fineuploader.css'>
+    <script type='text/javascript' src='fineuploader-3.0.js'></script>
+    <script>
+      function createUploader() {
+        var uploader = new qq.FineUploader({
+          element: document.getElementById('fine-uploader'),
+          request: {
+            endpoint: '/ecenter/smart/planogram/877/navigation/extra-spec',
+            forceMultipart: true
+          },
+          multiple: false,
+          debug: true
+        });
+      }
+
+      window.onload = createUploader;
+    </script>
+  </head>
+  <body>
+    <h2>File Uploader</h2>
+    <div id='fine-uploader'></div>
+  </body>
+</html>
