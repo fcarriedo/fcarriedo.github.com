@@ -48,5 +48,10 @@ body { font-family: Verdana }
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
+.bullet:hover {
+  border: solid thin #ccc;
+  background-color: #aaa;
+  cursor: pointer;
+}
 #bullet-container > .active {background-color: #aaa; border-color: #ccc; cursor: pointer;}
 #bullet-container > .sliding {border-width: 2px; background-color: orange;}

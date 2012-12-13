@@ -73,22 +73,22 @@ BulletView = Backbone.View.extend({
   hovered: false,
   hoverDelay: 1000,
   events: {
-    'click'      : 'slideTo',
-    'mouseenter' : 'mouseIn',
-    'mouseleave' : 'mouseOut'
+    'click'      : 'slideTo'
   },
   initialize: function() {
     this.page = this.model;
   },
   render: function() {
     this.$el.attr('title', 'Page ' + this.page.get('id'));
+    var self = this;
     this.$el.droppable({
       accept: '.product',
-      activeClass: 'active',
-      greedy: true,
-      hoverClass: 'sliding',
-      drop: function(evt, ui) {
-        console.log('Just dropped it!');
+      tolerance: 'pointer',
+      over: function(evt, ui) {
+        self.mouseIn();
+      },
+      out: function(evt, ui) {
+        self.mouseOut();
       }
     });
     return this;
