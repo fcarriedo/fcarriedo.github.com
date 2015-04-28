@@ -37,7 +37,7 @@ var CropView = Backbone.View.extend({
   defineHandle: function(evt) {
     var coords = this.getCoords(evt);
     if (this.activeStep === 0) {
-      this.selectStep(this.activeStep++);
+      this.selectStep(++this.activeStep);
 
       var $initHandle = $("<div id='init' class='handle'><hr class='vertical'/><hr class='horizontal'/></div>");
       $initHandle.css({'left': coords.x, 'top': coords.y});
@@ -45,7 +45,7 @@ var CropView = Backbone.View.extend({
       this.$trackpad.append($initHandle);
 
     } else if (this.activeStep === 1) {
-      this.selectStep(this.activeStep++);
+      this.selectStep(++this.activeStep);
 
       var $endHandle = $("<div id='end' class='handle'><hr class='vertical'/><hr class='horizontal'/></div>");
       $endHandle.css({'left': coords.x, 'top': coords.y});
