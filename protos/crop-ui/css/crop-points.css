@@ -1,0 +1,95 @@
+body {
+  font-family: sans-serif;
+}
+.step {
+  color: #bbb;
+}
+.step.active {
+  color: #333;
+  font-weight: bold;
+}
+#img-container {
+  position: relative;
+  width: 640px;
+  left: 50px;
+}
+#img-overlay {
+  background-color: #333;
+  opacity: 0.90;
+  filter: alpha(opacity=90);
+  border: 2px dashed orange;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 640px;
+  height: 480px;
+}
+#trackpad {
+  z-index: 4;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 640px;
+  height: 480px;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#ref-masked {
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  clip: rect(0px,0px,0px,0px); /* initialize with 0 dimensions */
+}
+.handle {
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+  margin-top: -20px;
+  margin-left: -20px;
+  border-radius: 50%;
+  border: 1px solid darkred;
+  background-color: red;
+  position: absolute;
+}
+
+.handle hr {
+  border: 1px solid white;
+}
+.handle hr.vertical {
+  width: 0px;
+}
+#init.handle hr.horizontal {
+  width: 150px;
+  margin-left: -12px;
+  margin-top: -130px;
+}
+#init.handle hr.vertical {
+  height: 150px;
+  margin-top: -12px;
+}
+#end.handle hr.horizontal {
+  width: 150px;
+  margin-left: -102px;
+  margin-top: -40px;
+}
+#end.handle hr.vertical {
+  height: 150px;
+  margin-top: -102px;
+}
+#discard {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 545px;
+  height: 50px;
+  width: 150px;
+}

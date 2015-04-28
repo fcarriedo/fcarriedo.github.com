@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel='stylesheet' href='css/crop-points.css'/>
+  <script src='js/jquery-min.js'></script>
+  <script src='js/underscore-min.js'></script>
+  <script src='js/backbone-min.js'></script>
+  <script src='js/crop-points.js'></script>
+  <title>Crop UI</title>
+  <script>
+    $(document).ready(function() {
+      new CropView({el: '#app'}).render();
+    });
+  </script>
+</head>
+<body>
+  <div id='app'>
+    <h2>Crop Area Definition</h2>
+    <ol>
+      <li id='step-0' class='step active'>
+      Please touch anywhere in the area to establish the initial point that marks
+      the rectangle.
+      </li>
+      <li id='step-1' class='step'>
+      Please touch in the remaining area to mark the end point of the rectangle.
+      </li>
+    </ol>
+
+    <div id='img-container'></div>
+
+    <div><button id='discard' disabled='disabled'>discard</button></div>
+  </div>
+
+
+  <!-- TEMPLATES -->
+
+  <script id='img-crop-tmpl' type='text/tmpl'>
+    <div id='img-overlay'></div>
+    <img id='ref-background' src='{{img}}'/>
+    <img id='ref-masked' src='{{img}}'/>
+    <div id='trackpad' class='noselect'></div>
+  </script>
+
+  <script id='handle-tmpl' type='text/tmpl'>
+    <div class='handle'><hr class='vertical'/><hr class='horizontal'/></div>
+  </script>
+
+</body>
+</html>
+
