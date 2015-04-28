@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel='stylesheet' href='css/crop.css'/>
+  <script src='js/jquery-min.js'></script>
+  <script src='js/underscore-min.js'></script>
+  <script src='js/backbone-min.js'></script>
+  <script src='js/crop.js'></script>
+  <title>Crop UI</title>
+  <script>
+    $(document).ready(function() {
+      new CropView({el: '#img-container'}).render();
+    });
+  </script>
+</head>
+<body>
+  <h2>Crop Area Definition</h2>
+  <p>
+  Please press one of the <b>handles</b> and drag with your finger to
+  redefine the crop area.
+  </p>
+
+  <div id='img-container'></div>
+
+
+  <!-- TEMPLATES -->
+
+  <script id='img-crop-tmpl' type='text/tmpl'>
+    <div id='img-overlay'></div>
+    <img id='ref-background' src='{{img}}'/>
+    <img id='ref-masked' src='{{img}}'/>
+    <div id='trackpad' class='noselect'>
+      <div id='init' class='handle'><hr class='vertical'/><hr class='horizontal'/></div>
+      <div id='end' class='handle'><hr class='vertical'/><hr class='horizontal'/></div>
+    </div>
+  </script>
+
+</body>
+</html>
+

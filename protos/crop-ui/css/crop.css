@@ -1,0 +1,87 @@
+body {
+  font-family: sans-serif;
+}
+#img-container {
+  position: relative;
+  width: 640px;
+  left: 50px;
+}
+#img-overlay {
+  background-color: #333;
+  opacity: 0.90;
+  filter: alpha(opacity=90);
+  border: 2px dashed orange;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 640px;
+  height: 480px;
+}
+#trackpad {
+  z-index: 4;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 640px;
+  height: 480px;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#ref-masked {
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  clip: rect(45px,400px,400px,45px);
+}
+.handle {
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+  margin-top: -20px;
+  margin-left: -20px;
+  border-radius: 50%;
+  border: 1px solid darkred;
+  background-color: red;
+  position: absolute;
+  top: 45px;
+  left: 45px;
+}
+.handle.active {
+  border: 4px dashed white;
+}
+#init.handle {
+  top: 45px;
+  left: 45px;
+}
+#end.handle {
+  top: 400px;
+  left: 400px;
+}
+
+.handle hr {
+  display: none;
+}
+.handle.active hr {
+  display: block;
+  border: 1px solid white;
+}
+.handle.active hr.horizontal {
+  width: 60px;
+  margin-left: -12px;
+  margin-top: -40px;
+}
+.handle.active hr.vertical {
+  width: 0px;
+  height: 60px;
+  margin-top: -12px;
+}
