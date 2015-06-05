@@ -1,0 +1,45 @@
+body {
+  color: #666;
+  font-family: sans-serif;
+}
+#backplane-container {
+  margin-top: 25px;
+  border: 1px solid orange;
+  width: 725px;
+  height: 448px;
+}
+#backplane {
+  display: flex;
+  align-content: flex-start;
+}
+.line {
+  display: flex;
+}
+#backplane.row-oriented {
+  /* each cross-section (line) behaves as a column */
+  flex-direction: column;
+}
+#backplane.column-oriented {
+  /* each cross-section (line) behaves as a row */
+  flex-direction: row;
+}
+#backplane > .line.row {
+  flex-direction: row;
+}
+#backplane > .line.column {
+  flex-direction: column;
+}
+.dispenser {
+  font: bold 0.70em courier;
+  border: 1px solid #999;
+  margin-top: -1px;
+  margin-left: -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.dispenser:hover {
+  color: white;
+  background-color: royalblue;
+}
