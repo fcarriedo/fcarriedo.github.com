@@ -39,12 +39,12 @@ var DispensersLineView = Backbone.View.extend({
   initialize: function(opts) {
     this.dispenserFlow = opts.dispenserFlow;
     this.scaleFactor = opts.scaleFactor;
-    this.line = opts.line;
+    this.dispensersLine = opts.line;
   },
   render: function() {
     this.$el.addClass(this.dispenserFlow);
 
-    _.each(this.line, function(disp) {
+    _.each(this.dispensersLine, function(disp) {
       this.$el.append(new DispenserView({model: disp, scaleFactor: this.scaleFactor}).render().el);
     }, this);
 
@@ -56,7 +56,7 @@ var BackplaneView = Backbone.View.extend({
   id: 'backplane',
   initialize: function() {
     this.dispenserFlow = this.model.get('dispenserFlow');
-    this.dispenserLines = this.getDispenserLines();
+    this.dispenserLines = this.breakIntoDispenserLines(this.model.get('dispensers'));
   },
   render: function() {
     this.$el.addClass(this.dispenserFlow + '-oriented');
@@ -70,15 +70,15 @@ var BackplaneView = Backbone.View.extend({
 
     return this;
   },
-  getDispenserLines: function() {
-    // Break it in lines for display. Each line will be either horizontal (row)
-    // or vertical (column).
-    var dispensers = this.model.get('dispensers');
+  // Break it in dispenser lines for display, with line being our primitive for
+  // dispenser grouping.  Each line will be either horizontal (row) or vertical
+  // (column) depending on the `dispenserFlow` property.
+  breakIntoDispenserLines: function(dispensers) {
     var linesNum = dispensers.where({end: true}).length;
     return dispensers.reduce(function(acc, disp) {
       acc[acc.length-1].push(disp);
       if (disp.get('end') && acc.length < linesNum) {
-        acc.push([]);
+        acc.push([]); // add a new line
       }
       return acc;
     }, [[]]);
