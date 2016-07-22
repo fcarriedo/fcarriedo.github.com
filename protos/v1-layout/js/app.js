@@ -128,7 +128,7 @@ var BackplaneView = Backbone.View.extend({
         // oriented. The first sample is representative.
         var width = _.reduce(this.dispenserLines, function(acc, line) {return acc + line[0].get('width')}, 0);
 
-        // Add the heights of all the dispensers of the first line
+        // Find the heights of every line
         var lineHeights = _.map(this.dispenserLines, function(line) {
           // return total height of line adding all heights of its dispensers
           return _.reduce(line, function(acc, disp) {return acc + disp.get('height')}, 0);
