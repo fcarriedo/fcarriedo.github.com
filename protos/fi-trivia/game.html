@@ -1,0 +1,155 @@
+<html>
+  <head>
+    <!-- <script type='text/javascript' src='data.js'></script> -->
+    <script type='text/javascript' src='data/quiz-questions.js'></script>
+    <script type='text/javascript' src='js/game.js'></script>
+
+    <script type='text/javascript' src='js/jquery.min.js'></script>
+    <script type='text/javascript' src='js/mustache.min.js'></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/game.css" rel="stylesheet" type="text/css" />
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+
+      let mygame;
+      let $qTmpl;
+
+      // Question index
+      let qIx;
+
+      $(document).on('click', '#start-btn,#try-again-btn', startNewGame)
+      $(document).on('click', '.answer-btn', selectAndAdvance)
+
+      $(document).ready(function() {
+        const $startTmpl = $('#start-tmpl').html();
+        $('#content').html(Mustache.render($startTmpl, {totalQuestions: game.totalQuestions, minToWin: game.minToWin}));
+
+        $qTmpl = $('#q-tmpl').html();
+      });
+
+      function startNewGame() {
+        mygame = game.createNew();
+        qIx = 0; // Initialize it to index 0 => first question
+
+        // Render the first question.
+        renderQuestion(mygame.questions[qIx]);
+      }
+
+      function selectAndAdvance(evt) {
+        // Don't allow any more selections when already selected.
+        if (mygame.questions[qIx].answers.filter(a => a.selected).length > 0) {
+          return;
+        }
+
+        const aId = evt.target.id;
+        const q = mygame.questions[qIx];
+        q.answers.forEach(a => {
+          if (a.id === aId) {
+            a.selected = true;
+
+            // Add the appropriate class and inform player.
+            if (a.correct) {
+              $('#' + aId).addClass('correct');
+              $('.question #info').hide().html('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Correct').fadeIn();
+              // Update question info with correct
+            } else {
+              $('#' + aId).addClass('incorrect');
+              $('.question #info').addClass('incorrect').hide().html('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Incorrect').fadeIn();
+
+              // Outline the correct answer.
+              const aCorrectId = q.answers.filter(a => a.correct)[0].id;
+              $('#' + aCorrectId).addClass('correct-outline');
+            }
+          }
+        });
+
+        // Update to perform all calculations.
+        mygame = game.update(mygame);
+
+        setTimeout(() => {
+          switch (mygame.result) {
+            case 'won':
+              $('#content').html($('#congrats-tmpl').html());
+              break;
+            case 'lost':
+              $('#content').html($('#sorry-tmpl').html());
+              break;
+            default:
+              // Render the next question
+              renderQuestion(mygame.questions[++qIx]);
+              break;
+          }
+        }, 3000);
+      }
+
+      function renderQuestion(q) {
+        $('#content').hide().html(Mustache.render($qTmpl, {q: q, ix: (qIx+1)})).fadeIn();
+      }
+
+    </script>
+
+  </head>
+  <body>
+
+    <!-- The main content area -->
+    <div id='content'></div>
+
+
+    <!-- TEMPLATES -->
+
+    <script id='start-tmpl' type='x-tmpl-mustache'>
+      <img id='fi-logo' src='images/fi_logo.png' width='500px' />
+      <div id='info'>
+        <div id='banner'>Play a trivia game to win!</div>
+        <div id='msg'>There are {{totalQuestions}} questions. Answer {{minToWin}} questions correctly and you'll win a travel gift.</div>
+      </div>
+
+      <div id='actions'>
+        <button id='start-btn' class='btn action-btn'>Start</button>
+      </div>
+    </script>
+
+    <script id='congrats-tmpl' type='x-tmpl-mustache'>
+      <img id='fi-logo' src='images/fi_logo.png' width='500px' />
+      <div id='info'>
+        <div id='banner'>Congratulations!</div>
+        <div id='msg'>You answered enough questions right to enjoy a travel gift on us.</div>
+      </div>
+
+      <div id='actions'>
+        <button id='continue-btn' class='btn action-btn'>Get your travel gift</button>
+      </div>
+    </script>
+
+    <script id='sorry-tmpl' type='x-tmpl-mustache'>
+      <img id='fi-logo' src='images/fi_logo.png' width='500px' />
+      <div id='info'>
+        <div id='banner'>Whoops...</div>
+        <div id='msg'>Unfortunately you didn't get enough correct answers to win.</div>
+      </div>
+
+      <div id='actions'>
+        <button id='try-again-btn' class='btn action-btn'>Try again?</button>
+        <button id='exit-btn' class='btn action-btn'>Return to main screen</button>
+      </div>
+    </script>
+
+    <script id='q-tmpl' type='x-tmpl-mustache'>
+      <div id='timer'>0</div>
+
+      <img id='fi-logo' src='images/fi_logo.png' width='300px' />
+      <div id='{{q.id}}' class='question'>
+        <div id='info'>Question #{{ix}}</div>
+        <div id='text'>{{q.question}}</div>
+      </div>
+
+      <div id='answers'>
+      {{#q.answers}}
+        <button id='{{id}}' class='btn answer-btn'>{{text}}</button>
+      {{/q.answers}}
+      </div>
+    </script>
+  </body>
+</html>

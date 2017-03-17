@@ -1,0 +1,119 @@
+body {
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+#content div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#fi-logo {
+  margin-top: 200px;
+}
+
+#info > div {
+  width: 70%;
+  margin-top: 30px;
+}
+#info > div#banner {
+  color: #148850;
+  font-weight: bold;
+  font-size: 2.0em;
+}
+#info > div#msg {
+  color: #898C8E;
+  text-align: center;
+  font-size: 2.0em;
+}
+
+#actions {
+  margin-top: 300px;
+  width: 100%;
+}
+
+.action-btn {
+  width: 100%;
+  height: 170px;
+  margin-bottom: 10px;
+  font-size: 2.0em;
+  color: white;
+  background-color: #00BCD4;
+}
+
+.question {
+  margin-top: 120px;
+}
+
+.question > div {
+  width: 80%;
+  margin-top: 50px;
+}
+.question > div#info {
+  color: #148850;
+  font-weight: bold;
+  font-size: 3.0em;
+}
+.question > div#info.incorrect {
+  color: #FF5722;
+}
+.question > div#text {
+  color: #898C8E;
+  text-align: center;
+  font-size: 4.0em;
+}
+
+div#answers {
+  margin-top: 250px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+button.answer-btn {
+  width: 45%;
+  height: 270px;
+  margin: 7px;
+  font-size: 2.0em;
+  color: #666;
+  background-color: white;
+  border-color: #898C8E;
+  white-space: normal;
+}
+
+button.answer-btn.correct {
+  color: white;
+  background-color: #148850;
+}
+button.answer-btn.correct-outline {
+  border: 5px solid #148850;
+}
+
+button.answer-btn.incorrect {
+  color: white;
+  background-color: #FF5722;
+}
+
+#timer {
+  padding: 45px;
+  font-size: 3em;
+  font-weight: bold;
+  border-radius: 45px;
+  color: #bbb;
+  border: thin solid #bbb;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
