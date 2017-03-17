@@ -21,13 +21,18 @@
 
       $(document).on('click', '#start-btn,#try-again-btn', startNewGame)
       $(document).on('click', '.answer-btn', selectAndAdvance)
+      $(document).on('click', '#exit-btn,#continue-btn', renderInit)
 
       $(document).ready(function() {
-        const $startTmpl = $('#start-tmpl').html();
-        $('#content').html(Mustache.render($startTmpl, {totalQuestions: game.totalQuestions, minToWin: game.minToWin}));
+        renderInit();
 
         $qTmpl = $('#q-tmpl').html();
       });
+
+      function renderInit() {
+        const $startTmpl = $('#start-tmpl').html();
+        $('#content').html(Mustache.render($startTmpl, {totalQuestions: game.totalQuestions, minToWin: game.minToWin}));
+      }
 
       function startNewGame() {
         mygame = game.createNew();
@@ -137,7 +142,7 @@
     </script>
 
     <script id='q-tmpl' type='x-tmpl-mustache'>
-      <div id='timer'>0</div>
+      <!-- <div id='timer'>0</div> -->
 
       <img id='fi-logo' src='images/fi_logo.png' width='300px' />
       <div id='{{q.id}}' class='question'>
